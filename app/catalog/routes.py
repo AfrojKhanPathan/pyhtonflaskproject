@@ -7,8 +7,8 @@ from app.catalog.forms import EditBookForm,CreateBookForm
 
 @main.route('/')
 def display_book():
-    books = Book.query.all()
-    return render_template('home.html',books=books)
+        books = Book.query.all()
+        return render_template('home.html',books=books)
 
 @main.route('/display/publisher/<publisher_id>',methods=['GET','POST'])
 def display_publisher(publisher_id):
@@ -31,7 +31,7 @@ def delete_book(book_id):
 @login_required
 def edit_book(book_id):
     book = Book.query.get(book_id)
-    form =EditBookForm(obj=book)
+    form = EditBookForm(obj=book)
     if form.validate_on_submit():
         book.title = form.title.data
         book.format = form.title.data

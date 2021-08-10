@@ -3,18 +3,19 @@ from datetime import datetime
 
 class Publication(db.Model):
 
-    #__tablename__ = 'publication'
+    __tablename__ = 'publication'
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(80),nullable=True)
 
-    def __init__(self,name):
+    def __init__(self,id,name):
+        self.id = id
         self.name = name
 
     def __repr__(self):
         return 'Publisher is {}'.format(self.name)
 
 class Book(db.Model):
-    #__tablename__ = 'book'
+    __tablename__ = 'book'
     id = db.Column(db.Integer,primary_key=True)
     title = db.Column(db.String(500),nullable=True,index=True)
     author = db.Column(db.String(300))
@@ -25,7 +26,8 @@ class Book(db.Model):
     pub_date = db.Column(db.DateTime, default=datetime.utcnow())
     pub_id = db.Column(db.Integer,db.ForeignKey('publication.id'))
 
-    def __init__(self,title,author,avg_rating,format,image,num_page,pub_date,pub_id):
+    def __init__(self,id,title,author,avg_rating,format,image,num_page,pub_date,pub_id):
+        self.id = id
         self.title = title
         self.author = author
         self.avg_rating = avg_rating
