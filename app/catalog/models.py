@@ -2,8 +2,8 @@ from app import db
 from datetime import datetime
 
 class Publication(db.Model):
-    __tablename__ = 'publication'
 
+    #__tablename__ = 'publication'
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(80),nullable=True)
 
@@ -14,8 +14,7 @@ class Publication(db.Model):
         return 'Publisher is {}'.format(self.name)
 
 class Book(db.Model):
-    __tablename__ = 'book'
-
+    #__tablename__ = 'book'
     id = db.Column(db.Integer,primary_key=True)
     title = db.Column(db.String(500),nullable=True,index=True)
     author = db.Column(db.String(300))

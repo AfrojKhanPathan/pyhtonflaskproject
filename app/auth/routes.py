@@ -1,4 +1,4 @@
-from flask import render_template,request,flash,redirect,url_for
+from flask import render_template,flash,redirect,url_for
 from app.auth.forms import RegistrationForm
 from app.auth import authentication as at
 from app.auth.models import User

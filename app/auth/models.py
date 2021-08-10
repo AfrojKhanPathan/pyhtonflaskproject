@@ -4,7 +4,7 @@ from flask_login import UserMixin
 from app import login_manger
 
 class User(UserMixin,db.Model):
-    __tablename__='user'
+    # __tablename__='user'
 
     id = db.Column(db.Integer,primary_key=True)
     user_name = db.Column(db.String(20))
